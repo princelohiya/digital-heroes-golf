@@ -121,7 +121,7 @@ export default function AdminDashboard() {
               official monthly winning numbers.
             </p>
             <button
-              onClick={() => router.push("/admin/draw-engine")}
+              onClick={() => router.push("/admin/draws")}
               className="mt-auto bg-white text-black hover:bg-neutral-200 px-6 py-3 rounded-lg font-bold transition-colors w-full sm:w-auto"
             >
               Launch Draw Engine
