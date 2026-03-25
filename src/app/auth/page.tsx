@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -11,6 +11,39 @@ export default function AuthPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    // This listens for ANY successful login event globally
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === "SIGNED_IN" && session) {
+          // 1. Ask the database who this person is
+          const { data, error } = await supabase
+            .from("users")
+            .select("role")
+            .eq("id", session.user.id)
+            .single();
+
+          if (error) {
+            console.error("Error fetching role:", error);
+            return;
+          }
+
+          // 2. The Smart Split Router
+          if (data?.role === "admin") {
+            router.push("/admin"); // VIP Entrance
+          } else {
+            router.push("/dashboard"); // Standard Entrance
+          }
+        }
+      },
+    );
+
+    // Cleanup the listener when the component unmounts
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, [router]);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,7 +116,7 @@ export default function AuthPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors disabled:opacity-50"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
           >
             {loading ? "Processing..." : isLogin ? "Sign In" : "Create Account"}
           </button>
@@ -100,7 +133,7 @@ export default function AuthPage() {
         <div className="mt-6 text-center">
           <button
             onClick={() => setIsLogin(!isLogin)}
-            className="text-neutral-400 hover:text-white text-sm transition-colors"
+            className="text-neutral-400 hover:text-white text-sm transition-colors cursor-pointer"
           >
             {isLogin
               ? "Don't have an account? Sign up"

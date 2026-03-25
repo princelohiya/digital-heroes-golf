@@ -89,7 +89,7 @@ export default function AdminDashboard() {
           </div>
           <button
             onClick={() => router.push("/dashboard")}
-            className="text-sm text-neutral-400 hover:text-white"
+            className="text-sm text-neutral-400 hover:text-white cursor-pointer"
           >
             Exit to User Dashboard
           </button>
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
             </p>
             <button
               onClick={() => router.push("/admin/draws")}
-              className="mt-auto bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors"
+              className="mt-auto bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-medium transition-colors cursor-pointer"
             >
               Open Draw Engine &rarr;
             </button>
@@ -144,7 +144,7 @@ export default function AdminDashboard() {
             </p>
             <button
               onClick={() => router.push("/admin/verification")}
-              className="mt-auto bg-neutral-800 hover:bg-neutral-700 px-6 py-3 border border-neutral-700 rounded-lg font-medium transition-colors"
+              className="mt-auto bg-neutral-800 hover:bg-neutral-700 px-6 py-3 border border-neutral-700 rounded-lg font-medium transition-colors cursor-pointer"
             >
               Review Pending Winners
             </button>

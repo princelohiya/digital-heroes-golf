@@ -130,7 +130,7 @@ export default function DashboardPage() {
               Your Dashboard
             </h1>
             <p className="text-neutral-400 mt-1">
-              Status:{" "}
+              Membership Status:{" "}
               <span
                 className={`font-semibold ${profile?.subscription_status === "active" ? "text-green-400" : "text-yellow-400"}`}
               >
@@ -143,7 +143,7 @@ export default function DashboardPage() {
               await supabase.auth.signOut();
               router.push("/auth");
             }}
-            className="text-sm text-neutral-400 hover:text-white transition-colors"
+            className="text-sm text-neutral-400 hover:text-white transition-colors cursor-pointer"
           >
             Sign Out
           </button>
@@ -184,7 +184,7 @@ export default function DashboardPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-colors disabled:opacity-50"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
               >
                 {submitting ? "Saving..." : "Submit Score"}
               </button>

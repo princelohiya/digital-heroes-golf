@@ -125,7 +125,7 @@ export default function CharityDirectoryPage() {
           </div>
           <button
             onClick={() => router.push("/dashboard")}
-            className="text-sm text-blue-400 hover:text-blue-300"
+            className="text-sm text-blue-400 hover:text-blue-300 cursor-pointer"
           >
             &larr; Back to Dashboard
           </button>
@@ -159,7 +159,7 @@ export default function CharityDirectoryPage() {
               <button
                 onClick={() => handleSaveSelection(selectedCharityId)}
                 disabled={saving}
-                className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer"
               >
                 Update %
               </button>
@@ -205,7 +205,7 @@ export default function CharityDirectoryPage() {
                 <button
                   onClick={() => handleSaveSelection(charity.id)}
                   disabled={isSelected || saving}
-                  className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                  className={`w-full py-3 rounded-lg font-medium transition-colors cursor-pointer ${
                     isSelected
                       ? "bg-blue-600/20 text-blue-400 cursor-default"
                       : "bg-neutral-800 hover:bg-neutral-700 text-white"

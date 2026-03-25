@@ -128,7 +128,7 @@ export default function DrawEnginePage() {
           </div>
           <button
             onClick={() => router.push("/admin")}
-            className="text-sm text-neutral-400 hover:text-white"
+            className="text-sm text-neutral-400 hover:text-white cursor-pointer"
           >
             &larr; Back to Admin
           </button>
@@ -148,7 +148,7 @@ export default function DrawEnginePage() {
             <button
               onClick={runRandomSimulation}
               disabled={loading}
-              className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 py-4 rounded-xl font-medium transition-colors text-lg"
+              className="cursor-pointer w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 py-4 rounded-xl font-medium transition-colors text-lg"
             >
               {loading ? "Generating..." : "Run Random Draw"}
             </button>
@@ -176,7 +176,7 @@ export default function DrawEnginePage() {
                   <button
                     onClick={publishDraw}
                     disabled={loading}
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform hover:scale-[1.02]"
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 rounded-xl shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
                   >
                     Publish Official Results
                   </button>

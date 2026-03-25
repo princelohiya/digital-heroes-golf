@@ -106,7 +106,7 @@ export default function SubscriptionPage() {
             <button
               onClick={() => handleSubscribe("monthly")}
               disabled={loadingPlan !== null || currentStatus === "active"}
-              className="w-full bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-neutral-800 hover:bg-neutral-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
             >
               {loadingPlan === "monthly" ? "Loading..." : "Subscribe Monthly"}
             </button>
@@ -143,7 +143,7 @@ export default function SubscriptionPage() {
             <button
               onClick={() => handleSubscribe("yearly")}
               disabled={loadingPlan !== null || currentStatus === "active"}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
             >
               {loadingPlan === "yearly" ? "Loading..." : "Subscribe Annually"}
             </button>

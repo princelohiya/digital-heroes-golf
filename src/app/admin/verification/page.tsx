@@ -119,7 +119,7 @@ export default function VerificationPanel() {
           </div>
           <button
             onClick={() => router.push("/admin")}
-            className="text-sm text-neutral-400 hover:text-white"
+            className="text-sm text-neutral-400 hover:text-white cursor-pointer"
           >
             &larr; Back to Admin
           </button>
@@ -186,14 +186,14 @@ export default function VerificationPanel() {
                     <button
                       onClick={() => handleVerification(winner.id, "rejected")}
                       disabled={processingId === winner.id}
-                      className="bg-red-950 hover:bg-red-900 text-red-500 border border-red-900/50 py-3 rounded-xl font-medium transition-colors"
+                      className="bg-red-950 hover:bg-red-900 text-red-500 border border-red-900/50 py-3 rounded-xl font-medium transition-colors cursor-pointer"
                     >
                       Reject Proof
                     </button>
                     <button
                       onClick={() => handleVerification(winner.id, "approved")}
                       disabled={processingId === winner.id}
-                      className="bg-green-600 hover:bg-green-700 text-white shadow-[0_0_15px_rgba(22,163,74,0.3)] py-3 rounded-xl font-bold transition-all hover:scale-[1.02]"
+                      className="bg-green-600 hover:bg-green-700 text-white shadow-[0_0_15px_rgba(22,163,74,0.3)] py-3 rounded-xl font-bold transition-all hover:scale-[1.02] cursor-pointer"
                     >
                       Approve & Pay
                     </button>
